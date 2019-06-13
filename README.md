@@ -1,6 +1,17 @@
 # adjust-images.js
 
-画像の面積をだいたい揃えるjs
+画像の面積をだいたい揃えるjsです。ギャラリーやロゴ一覧などに。
+
+![](./sc.png)
+
+
+
+[Example🔗](https://sk-rt.github.io/adjust-images/)
+
+- 画像の縦横比率から割り出したwidth(or height）を`%`で追加。
+- `<img>` の親要素に width/heightを指定する必要があります。
+- 縦横比1:1の画像はデフォルトで `width:50%` になります。
+
 
 
 ## Sample
