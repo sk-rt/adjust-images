@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>画像の面積をだいたい揃える。JS</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
+        <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
+   
+        <style>
+            .container {
+                max-width: 1260px;
+            }
+            .code-sample {
+                background-color: #333;
+                margin-bottom: 2em;
+                border-radius: 4px;
+            }
+            .image-container {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: flex-start;
+                align-items:stretch;
+                margin:2rem 0 4rem;
+            }
+            .image-item {
+                width: 13vw;
+                height: 13vw;
+                border: 1px solid #DDD;
+                padding: 0px;
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items:center;
+                margin: 10px;
+            }
+            .image-item img {
+                opacity: 0;
+            }
+            .image-item img.is-adjusted {
+                transition: opacity .2s;
+                opacity: 1; 
+            }
+        </style>
+        <script src="./adjust-images.js"></script>
+        <script>
+            document.addEventListener(
+                "DOMContentLoaded",
+                () => {
+                    const images = document.querySelectorAll(".image-container img");
+                    adjustImagesHandler(images,0.5);
+                },
+                false
+            );
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <!-- Basic -->
+            <section class="section">
+                <div class="content">
+                    <h1 class="title is-1">adjustImages</h1>
+                    <p>画像の面積をだいたい揃える。</p>
+
+                    <pre class="code-sample"><code class="prettyprint">const images = document.querySelectorAll(".image-container img");
+adjustImagesHandler(images,0.5);</code></pre>
+                </div>
+                <div class="image-container">
+                    <div class="image-item">
+                        <img src="https://placehold.jp/500x500.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/50x50.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/400x300.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/300x400.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/800x450.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/450x800.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/600x300.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/300x600.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/1000x300.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/300x1000.png?v=10" alt="">
+                    </div>
+                </div>
+                <div class="content">
+                <h2 class="title is-4">極端な比率</h2>
+                    <p>width/heightが100%を超える場合は親要素のサイズに収まる。</p>
+                </div>
+                <div class="image-container">
+                    <div class="image-item">
+                        <img src="https://placehold.jp/400x100.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/700x100.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/1000x100.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/2000x100.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/100x400.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/100x700.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/100x1000.png?v=10" alt="">
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/100x2000.png?v=10" alt="">
+                    </div>
+                   
+                    
+                </div>
+            </section>
+        </div>
+        <footer class="footer">
+            <div class="content has-text-centered">
+                <p>
+                    This Page is example for<br />
+                    <a href="https://github.com/sk-rt/handy-collapse"> <strong>handy-collapse.js</strong></a>
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
