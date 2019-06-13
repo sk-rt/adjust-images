@@ -1,10 +1,9 @@
 /**
  * @param {NodeListOf<HTMLImageElement>} images - Nodelist
- * @param {number} reference - 基準値。画像の比率が1:1の時の比率（0.5ならwidth:50%）
+ * @param {number?} reference - 基準値。画像の比率が1:1の時の比率（0.5ならwidth:50%）(Optional)
  */
-const adjustImagesHandler = (images, reference = 0.5) => {
+const adjustImages = (images, reference = 0.5) => {
     [].slice.call(images).forEach(image => {
-        console.dir(image);
         if (image.width === 0) {
             image.addEventListener('load', () => {
                 adjustImage(image, reference);
@@ -16,10 +15,10 @@ const adjustImagesHandler = (images, reference = 0.5) => {
 };
 /**
  * @param {HTMLImageElement} image - Node
- * @param {number} reference
+ * @param {number?} reference - 基準値 (Optional)
  */
 const adjustImage = (image, reference = 0.5) => {
-    if (typeof image !== 'object' && !image.width) return;
+    if (typeof image !== 'object' || !image.width) return;
     const ratio = image.width / image.height;
     if (ratio >= 1) {
         image.style.width = Math.sqrt(ratio) * reference * 100 + '%';
