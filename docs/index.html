@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>画像の面積をだいたい揃える。JS</title>
-        
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css" />
         <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?skin=desert"></script>
-   
+
         <style>
             .container {
                 max-width: 1260px;
             }
+
             .code-sample {
                 background-color: #333;
                 margin-bottom: 2em;
@@ -22,41 +23,48 @@
                 display: flex;
                 flex-flow: row wrap;
                 justify-content: flex-start;
-                align-items:stretch;
-                margin:2rem 0 4rem;
+                align-items: stretch;
+                margin: 2rem 0 4rem;
             }
             .image-item {
                 width: 13vw;
                 height: 13vw;
-                border: 1px solid #DDD;
+                border: 1px solid #ddd;
                 padding: 0px;
                 display: flex;
                 flex-flow: row nowrap;
                 justify-content: center;
-                align-items:center;
+                align-items: center;
                 margin: 10px;
+            }
+            /* ~~~~~ SP ~~~~~~ */
+            @media (max-width: 767px) {
+                .image-item {
+                    width: 100px;
+                    height: 100px;
+                    margin: 5px;
+                }
             }
             .image-item img {
                 opacity: 0;
             }
             .image-item img.is-adjusted {
-                transition: opacity .2s;
-                opacity: 1; 
+                transition: opacity 0.2s;
+                opacity: 1;
             }
         </style>
         <script src="./adjust-images.js"></script>
         <script>
             document.addEventListener(
-                "DOMContentLoaded",
+                'DOMContentLoaded',
                 () => {
-                    const images = document.querySelectorAll(".image-container img");
-                    adjustImages(images,0.5);
+                    const images = document.querySelectorAll('.image-container img');
+                    adjustImages(images, 0.5);
                 },
                 false
             );
         </script>
     </head>
-
     <body>
         <div class="container">
             <!-- Basic -->
@@ -65,77 +73,109 @@
                     <h1 class="title is-1">adjustImages</h1>
                     <p>画像の面積をだいたい揃えるjsです。ギャラリーやロゴ一覧などに。</p>
                     <p>
-                        <a href="./adjust-images.js" class="button is-primary" target="_blank" download >DownLoad</a>
-                        <a href="https://github.com/sk-rt/adjust-images" class="button is-info" target="_blank" download >GitHub</a>
+                        <a href="./adjust-images.js" class="button is-primary" target="_blank" download>DownLoad</a>
+                        <a href="https://github.com/sk-rt/adjust-images" class="button is-info" target="_blank"
+                            >GitHub</a
+                        >
                     </p>
                     <h3>jsサンプル</h3>
-                    
-                    <pre class="code-sample"><code class="prettyprint">const images = document.querySelectorAll(".image-container img");
+
+                    <pre
+                        class="code-sample"
+                    ><code class="prettyprint">const images = document.querySelectorAll(".image-container img");
 adjustImages(images,0.5);</code></pre>
                 </div>
                 <div class="image-container">
                     <div class="image-item">
-                        <img src="https://placehold.jp/500x500.png?v=10" alt="">
+                        <img src="https://placehold.jp/500x500.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/50x50.png?v=10" alt="">
+                        <img src="https://placehold.jp/50x50.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/400x300.png?v=10" alt="">
+                        <img src="https://placehold.jp/400x300.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/300x400.png?v=10" alt="">
+                        <img src="https://placehold.jp/300x400.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/800x450.png?v=10" alt="">
+                        <img src="https://placehold.jp/800x450.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/450x800.png?v=10" alt="">
+                        <img src="https://placehold.jp/450x800.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/600x300.png?v=10" alt="">
+                        <img src="https://placehold.jp/600x300.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/300x600.png?v=10" alt="">
+                        <img src="https://placehold.jp/300x600.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/1000x300.png?v=10" alt="">
+                        <img src="https://placehold.jp/1000x300.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/300x1000.png?v=10" alt="">
+                        <img src="https://placehold.jp/300x1000.png?v=10" alt="" />
                     </div>
                 </div>
                 <div class="content">
-                <h2 class="title is-4">極端な比率</h2>
+                    <h2 class="title is-4">極端な比率</h2>
                     <p>width/heightが100%を超える場合は親要素のサイズに収まります。</p>
                 </div>
                 <div class="image-container">
                     <div class="image-item">
-                        <img src="https://placehold.jp/400x100.png?v=10" alt="">
+                        <img src="https://placehold.jp/400x100.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/700x100.png?v=10" alt="">
+                        <img src="https://placehold.jp/700x100.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/1000x100.png?v=10" alt="">
+                        <img src="https://placehold.jp/1000x100.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/2000x100.png?v=10" alt="">
+                        <img src="https://placehold.jp/2000x100.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/100x400.png?v=10" alt="">
+                        <img src="https://placehold.jp/100x400.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/100x700.png?v=10" alt="">
+                        <img src="https://placehold.jp/100x700.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/100x1000.png?v=10" alt="">
+                        <img src="https://placehold.jp/100x1000.png?v=10" alt="" />
                     </div>
                     <div class="image-item">
-                        <img src="https://placehold.jp/100x2000.png?v=10" alt="">
+                        <img src="https://placehold.jp/100x2000.png?v=10" alt="" />
                     </div>
-                   
-                    
+                </div>
+                <div class="content">
+                    <h2 class="title is-4">極端な比率</h2>
+                    <p>width/heightが100%を超える場合は親要素のサイズに収まります。</p>
+                </div>
+                <div class="image-container">
+                    <div class="image-item">
+                        <img src="https://placehold.jp/400x100.png?v=10" width="100" height="800" alt="" />
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/700x100.png?v=10" alt="" />
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/1000x100.png?v=10" alt="" />
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/2000x100.png?v=10" alt="" />
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/100x400.png?v=10" alt="" />
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/100x700.png?v=10" alt="" />
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/100x1000.png?v=10" alt="" />
+                    </div>
+                    <div class="image-item">
+                        <img src="https://placehold.jp/100x2000.png?v=10" alt="" />
+                    </div>
                 </div>
             </section>
         </div>
